@@ -7,6 +7,21 @@ const applyTodoMvcStyling = (ctx, assetUrl) => {
   ctx.template.head.push(escapeHtml);
 };
 
+const redirectIfGenericUrl = ctx => {
+  const localeFromPath = ctx.path.replace("/", "");
+
+  if (localeFromPath.length === 0) {
+    let acceptedLanguage = ctx.request.header["accept-language"];
+    /**
+     * Some browsers include extraneous information with
+     * the "accept-language" header
+     */
+    acceptedLanguage = acceptedLanguage.split(",")[0];
+
+    ctx.redirect(acceptedLanguage);
+  }
+};
+
 const allowLanguageSpecificUrls = ctx => {
   const localeFromPath = ctx.path.replace("/", "");
 
@@ -22,6 +37,7 @@ export default createPlugin({
 
     return (ctx, next) => {
       applyTodoMvcStyling(ctx, todoCssUrl);
+      redirectIfGenericUrl(ctx);
       allowLanguageSpecificUrls(ctx);
       return next();
     };
