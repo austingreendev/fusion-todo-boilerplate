@@ -30,7 +30,9 @@
     "test": "fusion test",
     "build": "fusion build",
     "start": "fusion start",
-    "format": "prettier src/**/*.js --write"
+    "format": "npm run format:js && npm run format:md",
+    "format:js": "prettier src/**/*.js --write",
+    "format:md": "prettier *.md --write"
   },
   "devDependencies": {
     "prettier": "^1.13.6"
