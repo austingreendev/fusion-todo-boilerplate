@@ -13,6 +13,8 @@ This repository is an example implementation of a [Fusion.js](https://fusionjs.c
 
 ![english screenshot](.github/english-screenshot.png)
 
+## Localization Demo
+
 ![localization demo](.github/localization-demo.gif)
 
 ## Running Locally
