@@ -17,8 +17,7 @@ import ReduxActionEmitterEnhancer from 'fusion-plugin-redux-action-emitter-enhan
 // I18n
 import I18n, {
   I18nToken,
-  I18nLoaderToken,
-  createI18nLoader
+  I18nLoaderToken
 } from 'fusion-plugin-i18n-react';
 
 // Local
@@ -26,6 +25,7 @@ import root from './root.js';
 import getInitialState from './initialState.js';
 import reducers from './reducers';
 import TodoPlugin from './plugins/TodoPlugin';
+import TodoI18nLoader from './plugins/TodoI18nLoader';
 
 export default () => {
   const app = new App(root);
@@ -42,7 +42,7 @@ export default () => {
 
   // Enable I18N
   app.register(I18nToken, I18n);
-  __NODE__ && app.register(I18nLoaderToken, createI18nLoader());
+  __NODE__ && app.register(I18nLoaderToken, TodoI18nLoader());
   __BROWSER__ && app.register(FetchToken, fetch);
 
   // Enable custom TodoPlugin for styling and i18n logic

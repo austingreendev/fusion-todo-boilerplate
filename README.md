@@ -5,7 +5,7 @@ This repository is an example implementation of a [Fusion.js](https://fusionjs.c
 - Localization and Translations
   - Uses [fusion-plugin-i18n-react](https://fusionjs.com/api/fusion-plugin-i18n-react) for easy usage within React
   - Supports English, German, French, and Japanese locales
-  - Dynamically redirects users to correct locale based on `accept-language` header
+  - Dynamically changes user locale based on `accept-language` header
   - Allows specific language selection with locale urls
     - i.e. `/en-US` will force english translations
 - Custom Plugin Creation
@@ -31,5 +31,4 @@ yarn dev
 
 - There are currently 0 tests in this repo :cry:
   - In the future, [fusion test utils](https://fusionjs.com/api/fusion-test-utils) should be used to cover the logic within the custom `TodoPlugin`
-- The url redirect logic should probably live within a custom `I18nLoader` implementation, but some logic is leaking out of the `__NODE__` boundary and being ran in the client when that is attempted.
 - Rather than inject the todomvc styling with our custom Plugin, we should be able to use the [fusion-plugin-react-helmet-async](https://fusionjs.com/docs/guides/static-assets), but there currently seems to be a miss-match between assetUrl values in node vs. browser.

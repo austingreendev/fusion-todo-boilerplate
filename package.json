@@ -16,6 +16,7 @@
     "fusion-react-async": "^1.2.2",
     "fusion-tokens": "^1.0.3",
     "locale": "^0.1.0",
+    "prettier": "^1.13.7",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-redux": "^5.0.7",
@@ -33,8 +34,5 @@
     "format": "npm run format:js && npm run format:md",
     "format:js": "prettier src/**/*.js --write",
     "format:md": "prettier *.md --write"
-  },
-  "devDependencies": {
-    "prettier": "^1.13.6"
   }
 }

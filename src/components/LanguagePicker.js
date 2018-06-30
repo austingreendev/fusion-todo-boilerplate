@@ -22,6 +22,9 @@ const LanguagePicker = ({ location, history, translate }) => {
         }}
         value={currentLanguage}
       >
+        <option value="" disabled hidden>
+          {translate("choose_language")}
+        </option>
         {Object.keys(languages).map(languageKey => (
           <option value={languageKey} key={languageKey}>
             {languages[languageKey]}
@@ -33,6 +36,7 @@ const LanguagePicker = ({ location, history, translate }) => {
 };
 
 export default withTranslations([
+  "choose_language",
   "language_en",
   "language_fr",
   "language_de",
